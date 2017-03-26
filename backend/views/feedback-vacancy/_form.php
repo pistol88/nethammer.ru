@@ -1,0 +1,35 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\feedback\Vacancy */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="vacancy-form">
+
+    <?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($model, 'vacancy_id')->textInput() ?>
+
+    <?= $form->field($model, 'person_name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'person_contacts')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'person_about')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'summary_file')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'summary_link')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'time')->textInput() ?>
+
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Редактировать', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+
+</div>

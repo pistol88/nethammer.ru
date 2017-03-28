@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         'js/myjs.js',
         'js/jquery.isotope.min.js',
         'js/sorting.js',
+        'js/bootstrap.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -43,7 +43,7 @@ class Slide extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'text'], 'required'],
-            [['text'], 'string'],
+            [['text', 'background', 'icon'], 'string'],
             [['name'], 'string', 'max' => 155],
             [['link', 'link_anchor'], 'string', 'max' => 55],
         ];
@@ -60,6 +60,8 @@ class Slide extends \yii\db\ActiveRecord
             'text' => 'Текст',
             'link' => 'Сссылка',
             'link_anchor' => 'Анкор ссылки',
+            'background' => 'Фоновое изображение',
+            'icon' => 'Иконка'
         ];
     }
 }

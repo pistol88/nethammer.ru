@@ -17,6 +17,8 @@ use yii\widgets\ActiveForm;
         <div class="col-md-5"><?= $form->field($model, 'slug')->textInput(['maxlength' => true, 'placeholder' => 'Не обязательно']) ?></div>
     </div>
 
+    <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
+
     <?php echo $form->field($model, 'text')->widget(
         \yii\imperavi\Widget::className(),
         [

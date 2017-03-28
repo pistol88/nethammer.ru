@@ -24,7 +24,6 @@ $this->title = 'Нетхаммер';
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
                 'name',
                 'link',
                 'link_anchor',

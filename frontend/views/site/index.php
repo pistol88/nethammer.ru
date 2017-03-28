@@ -1,53 +1,46 @@
 <?php
+$this->title = $page->seo->title;
 
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+if(empty($this->title)) {
+    $this->title = $page->name;
+}
 ?>
-<div class="site-index">
+<div id="fullpage">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+    <?php $i = 0; foreach($slides as $slide) { $i++; ?>
+        <?php
+        if($slide->hasImage()) {
+            $slideImage = $slide->getImage()->getUrl();
+        } elseif($slide->icon) {
+            $slideImage = "/frontend/web/image/{$slide->icon}";
+        } else {
+            $slideImage = false;
+        }
+        ?>
+        <section class="container-fluid anchor" id="<?=$slide->background;?>">
+            <div class="container">
+                <a class="animate" href="#slide<?=$slide->id;?>"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <div class="row">
+                    <div class="hidden-xs col-sm-2">
+                        <?php if($slideImage) { ?>
+                            <img src="<?=$slideImage;?>" width="169" alt="<?=$slide->name;?>">
+                        <?php } ?>
+                    </div>
+                    <div class="col-xs-12 col-sm-10">
+                        <?php if($i == 1) { ?>
+                            <img class="logo" src="/frontend/web/image/svg/logo.svg" alt="<?=yii::$app->name;?>">
+                        <?php } ?>
+                        <div class="description">
+                            <?=nl2br($slide->text);?>
+                        </div>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                        <?php if($slide->link) { ?>
+                            <a class="link" href="<?=$slide->link;?>"><?=$slide->link_anchor;?></a>
+                        <?php } ?>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+        </section>
+    <?php } ?>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
 </div>

@@ -27,7 +27,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'name',
-            
+            [
+                'attribute' => 'template',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'template',
+                    yii::$app->params['pageTemplates'],
+                    ['class' => 'form-control', 'prompt' => 'Категория']
+                ),
+                'value' => function($model) {
+                    return yii::$app->params['pageTemplates'][$model->template];
+                }
+            ],
+
             ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}'],
         ],
     ]); ?>

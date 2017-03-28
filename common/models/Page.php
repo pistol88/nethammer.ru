@@ -57,7 +57,7 @@ class Page extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Название',
             'slug' => 'Слуг',
-            'template' => 'Шаблон',
+            'template' => 'Тип',
             'text' => 'Текст',
         ];
     }

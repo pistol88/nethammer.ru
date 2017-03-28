@@ -3,6 +3,7 @@
 namespace common\models\blog;
 
 use Yii;
+use dektrium\user\models\User;
 
 /**
  * This is the model class for table "blog_post".
@@ -47,7 +48,7 @@ class Post extends \yii\db\ActiveRecord
             [['name', 'text'], 'required'],
             [['date'], 'safe'],
             [['text'], 'string'],
-            [['name', 'slug'], 'string', 'max' => 155],
+            [['name', 'slug', 'icon'], 'string', 'max' => 155],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -65,6 +66,7 @@ class Post extends \yii\db\ActiveRecord
             'date' => 'Дата',
             'author_user_id' => 'Автор',
             'text' => 'Текст',
+            'icon' => 'Иконка',
         ];
     }
 
@@ -76,6 +78,11 @@ class Post extends \yii\db\ActiveRecord
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
+    public function getAuthor()
+    {
+        return $this->hasOne(User::className(), ['id' => 'author_user_id']);
+    }
+
     public function beforeSave($insert)
     {
         if(empty($this->date)) {
@@ -83,5 +90,7 @@ class Post extends \yii\db\ActiveRecord
         }
 
         parent::beforeSave($insert);
+
+        return true;
     }
 }

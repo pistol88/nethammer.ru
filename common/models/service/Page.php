@@ -1,18 +1,19 @@
 <?php
 
-namespace common\models;
+namespace common\models\service;
 
 use Yii;
 
 /**
- * This is the model class for table "service".
+ * This is the model class for table "service_page".
  *
  * @property integer $id
+ * @property integer $service_id
  * @property string $name
  * @property string $text
  * @property integer $sort
  */
-class Service extends \yii\db\ActiveRecord
+class Page extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -32,7 +33,7 @@ class Service extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'service';
+        return 'service_page';
     }
 
     /**
@@ -43,7 +44,7 @@ class Service extends \yii\db\ActiveRecord
         return [
             [['name', 'text'], 'required'],
             [['text'], 'string'],
-            [['sort'], 'integer'],
+            [['sort', 'service_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -56,8 +57,17 @@ class Service extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
+            'service_id' => 'Сервис',
             'text' => 'Текст',
             'sort' => 'Сортировка',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getService()
+    {
+        return $this->hasOne(Service::className(), ['id' => 'service_id']);
     }
 }

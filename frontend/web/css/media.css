@@ -1,0 +1,149 @@
+@media (max-width: 992px){
+    .main-menu li + li {
+        margin-left: 5px;
+    }
+}
+@media (min-width: 768px) {
+
+}
+@media (max-width: 767px) {
+    .sticky-sidebar {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .owl-carousel-services .owl-controls {
+        top: initial;
+        bottom: 0;
+        margin-top: 0;
+    }
+    .services .item img {
+        width: 110px;
+        float: initial;
+        margin-right: 0;
+        position: absolute;
+        right: 0;
+    }
+    .services .item {
+        padding: 0 120px 0 10px;
+        max-width: 100%;
+    }
+    .services .item .h3 {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 24px;
+    }
+    .owl-carousel-services .item ul {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .bg-grad header.container-fluid.mobile-menu {
+        background-color: rgba(26, 89, 238, 0.9);
+        background-image: none;
+    }
+    .portfolio-list .item a {
+        padding: 15px;
+    }
+    #filters li a {
+        margin-bottom: 15px;
+    }
+    .portfolio-list .item a .h3 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 0;
+    }
+    .portfolio-list .item {
+        margin-bottom: 15px;
+    }
+    .portfolio-list .item a {
+        padding: 15px 50% 15px 15px;
+    }
+    .portfolio-list .item a .descript {
+        display: none;
+    }
+    .details {
+        margin-top: 23px;
+    }
+    #details .table-wrapper {
+        overflow: auto;
+    }
+    #details th, #details td {
+        font-size: 12px;
+        padding: 5px;
+    }
+    .details {
+        font-size: 12px;
+    }
+    #details {
+        padding: 0 15px;
+    }
+    .modal-header {
+        font-size: 24px;
+        padding: 30px 20px 20px;
+    }
+    .modal-body {
+        padding: 30px 20px 20px;
+    }
+    #command, #service, #tecnology {
+        background:transparent;
+    }
+    section .container {
+        font-size: 20px;
+    }
+    .navbar-toggle {
+        float: left;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .main-menu li {
+        display: block;
+        padding: 15px;
+    }
+    .main-menu li + li {
+        margin-left: 0;
+    }
+    .main-menu a {
+        color: #fff;
+        opacity: 1;
+    }
+    section .logo {
+        margin-top: 60px;
+    }
+    section .description {
+        margin-top: 15px;
+    }
+    section .link {
+        margin: 15px 0;
+    }
+    #service .col-sm-2 img {
+        max-height: 150px;
+    }
+    #tecnology .col-sm-2 img {
+        max-height: 120px;
+    }
+    .fa.fa-angle-down {
+        display: none;
+    }
+    header.container-fluid {
+        padding-right: calc(10% + 15px);
+    }
+    header.mobile-menu {
+        width: 90%;
+        height: 100%;
+        padding-right: 15px;
+        background-color: rgba(26, 89, 238, 0.9);
+        z-index: 999;
+        box-shadow: 0px 3px 20px 0px rgba(0, 34, 255, 0.2);
+    }
+    .main-menu .active a, .main-menu a:focus {
+        color: #fff;
+        font-weight: bold;
+    }
+}
+@media (max-width: 600px) {
+    
+}

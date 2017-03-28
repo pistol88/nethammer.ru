@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\blog\Category;
 use kartik\select2\Select2;
+use dektrium\user\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\blog\Post */
@@ -32,8 +33,29 @@ use kartik\select2\Select2;
                     ],
                 ]); ?>
         </div>
-        <div class="col-md-4"><?= $form->field($model, 'date')->textInput() ?></div>
-        <div class="col-md-4"><?= $form->field($model, 'author_user_id')->textInput() ?></div>
+        <div class="col-md-2">
+            <?= $form->field($model, 'icon')
+                ->widget(Select2::classname(), [
+                    'data' => yii::$app->params['blogIcons'],
+                    'language' => 'ru',
+                    'options' => ['placeholder' => 'Выберите иконку ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]); ?>
+        </div>
+        <div class="col-md-2"><?= $form->field($model, 'date')->textInput() ?></div>
+        <div class="col-md-2">
+            <?= $form->field($model, 'author_user_id')
+                ->widget(Select2::classname(), [
+                    'data' => ArrayHelper::map(User::find()->all(), 'id', 'username'),
+                    'language' => 'ru',
+                    'options' => ['placeholder' => 'Выберите автора ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]); ?>
+        </div>
     </div>
 
     <?php echo $form->field($model, 'text')->widget(

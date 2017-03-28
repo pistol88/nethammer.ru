@@ -12,13 +12,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <div class="col-md-6"><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?></div>
+        <div class="col-md-3"><?= $form->field($model, 'background')->dropDownList(yii::$app->params['slideBackgrounds']) ?></div>
+        <div class="col-md-3"><?= $form->field($model, 'icon')->dropDownList(yii::$app->params['icons']) ?></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6"><?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?></div>
+        <div class="col-md-6"><?= $form->field($model, 'link_anchor')->textInput(['maxlength' => true]) ?></div>
+    </div>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'link_anchor')->textInput(['maxlength' => true]) ?>
 
     <div class="gallery">
         <?=\pistol88\gallery\widgets\Gallery::widget(

@@ -12,6 +12,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Slide;
+use common\models\Page;
 
 /**
  * Site controller
@@ -72,7 +74,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $slides = Slide::find()->all();
+
+        $page = Page::find()->where(['template' => 'home'])->one();
+
+        return $this->render('index', [
+            'slides' => $slides,
+            'page' => $page,
+        ]);
     }
 
     /**

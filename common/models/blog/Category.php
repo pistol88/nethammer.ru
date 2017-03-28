@@ -46,6 +46,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['text'], 'string'],
+            [['sort'], 'integer'],
             [['name', 'slug'], 'string', 'max' => 155],
         ];
     }
@@ -60,6 +61,7 @@ class Category extends \yii\db\ActiveRecord
             'name' => 'Название',
             'slug' => 'Слуг',
             'text' => 'Текст',
+            'sort' => 'Сортировка',
         ];
     }
 

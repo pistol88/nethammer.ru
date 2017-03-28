@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 use common\models\blog\Category;
+use dektrium\user\models\User;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\blog\PostSearch */
@@ -35,6 +36,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'form-control', 'prompt' => 'Категория']
                 ),
                 'value' => 'category.name'
+            ],
+            [
+                'attribute' => 'author_user_id',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'category_id',
+                    ArrayHelper::map(User::find()->all(), 'id', 'username'),
+                    ['class' => 'form-control', 'prompt' => 'Автор']
+                ),
+                'value' => 'author.username'
             ],
             'name',
             'date',

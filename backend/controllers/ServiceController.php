@@ -3,8 +3,10 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Service;
-use common\models\ServiceSearch;
+use common\models\service\Page;
+use common\models\service\Service;
+use common\models\service\ServiceSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -85,8 +87,18 @@ class ServiceController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
+
+            $pageDataProvider = new ActiveDataProvider([
+                'query' => Page::find()->where(['service_id' => $model->id])->orderBy('sort DESC'),
+            ]);
+
+            $pageModel = new Page;
+            $pageModel->service_id = $model->id;
+
             return $this->render('update', [
                 'model' => $model,
+                'pageModel' => $pageModel,
+                'pageDataProvider' => $pageDataProvider,
             ]);
         }
     }

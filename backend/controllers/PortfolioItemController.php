@@ -89,7 +89,7 @@ class PortfolioItemController extends Controller
         } else {
 
             $blockDataProvider = new ActiveDataProvider([
-                'query' => Block::find()->orderBy('sort DESC'),
+                'query' => Block::find()->where(['item_id' => $model->id])->orderBy('sort DESC'),
             ]);
 
             $blockModel = new Block;

@@ -22,7 +22,7 @@ class Partner extends \yii\db\ActiveRecord
         return [
             'images' => [
                 'class' => 'pistol88\gallery\behaviors\AttachImages',
-                'mode' => 'gallery',
+                'mode' => 'single',
             ],
         ];
     }

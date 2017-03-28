@@ -23,12 +23,13 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
+
 <?php $this->beginBody() ?>
 
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '<img src="/backend/web/favicon.png" width="30" />',
+        'brandLabel' => '<span style="font-size: 27px;">⚒</span> Нетхаммер ',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',

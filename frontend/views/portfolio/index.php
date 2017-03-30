@@ -31,7 +31,7 @@ if(empty($this->title)) {
                     <div class="portfolio-list">
                         <?php foreach($items as $item) { ?>
                             <div class="item dark isotope-item category<?=$item->category_id;?>">
-                                <a href="<?=Url::toRoute(['/portfoio/item', 'id' => $item->id]);?>" style="background-image:url(<?=$item->image->getUrl('420x');?>)">
+                                <a href="<?=Url::toRoute(['/portfolio/item', 'id' => $item->id]);?>" style="background-image:url(<?=$item->image->getUrl('420x');?>)">
                                     <p class="h3"><?=$item->name;?></p>
                                     <div class="descript"><?=$item->anons;?></div>
                                 </a>

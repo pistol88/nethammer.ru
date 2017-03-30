@@ -16,15 +16,27 @@ class BlogController extends Controller
      * @return mixed
      */
 
-    public function actionIndex($category = null)
+    public function actionIndex($categoryId = null)
     {
         $categories = Category::find()->orderBy('sort DESC')->all();
 
-        $posts = Post::find()->orderBy('date DESC, id DESC')->limit(10)->all();
+        $posts = Post::find()->orderBy('date DESC, id DESC')->limit(10);
+
+        if($categoryId) {
+            $posts->where(['category_id' => $categoryId]);
+
+            if(!$page = Category::findOne($categoryId)) {
+                throw new NotFoundHttpException('Категории не существует.');
+            }
+        } else {
+            $page = Page::find()->where(['template' => 'portfolio'])->one();
+        }
+
+        $posts = $posts->all();
 
         $post = current($posts);
 
-        $page = Page::find()->where(['template' => 'portfolio'])->one();
+
 
         return $this->render('index', [
             'categories' => $categories,
@@ -36,16 +48,21 @@ class BlogController extends Controller
 
     public function actionRead($id)
     {
+        if(!$post = Post::findOne($id)) {
+            throw new NotFoundHttpException('Записи не существует.');
+        }
+
         $categories = Category::find()->orderBy('sort DESC')->all();
 
-        $items = Item::find()->orderBy('date DESC, id DESC')->all();
+        $posts = Post::find()->where(['category_id' => $post->category_id])->orderBy('date DESC, id DESC')->all();
 
-        $page = Page::find()->where(['template' => 'portfolio'])->one();
+        $post = Post::findOne($id);
 
         return $this->render('index', [
             'categories' => $categories,
-            'items' => $items,
-            'page' => $page,
+            'posts' => $posts,
+            'post' => $post,
+            'page' => $post,
         ]);
     }
 }

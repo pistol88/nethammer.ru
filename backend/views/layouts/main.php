@@ -99,7 +99,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Алькупон <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Нетхаммер <?= date('Y') ?></p>
 
         <p class="pull-right">© <a href="http://dvizh.net/" target="_blank">Dvizh software</a> 2017</p>
     </div>

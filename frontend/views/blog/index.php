@@ -7,7 +7,8 @@ if(empty($this->title)) {
     $this->title = $page->name;
 }
 
-if($post->author && $post->author->profile->gravatar_email) {
+
+if($post && $post->author && $post->author->profile->gravatar_email) {
     $gravatar = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $post->author->profile->gravatar_email ) ) ) . "&s=50";
 } else {
     $gravatar = false;
@@ -17,7 +18,7 @@ if($post->author && $post->author->profile->gravatar_email) {
 
     <div class="container-fluid">
         <div class="col-sm-2 right-logo">
-            <a href="index.php"><img src="/image/svg/logo.svg" alt=""></a>
+            <a href="/"><img src="/image/svg/logo.svg" alt=""></a>
         </div>
         <div class="container-fluid">
             <div class="clearfix"></div>
@@ -31,7 +32,7 @@ if($post->author && $post->author->profile->gravatar_email) {
                                 <li class="active"><a href="/blog/">#Все</a></li>
                                 <div class="clearfix"></div>
                                 <?php foreach($categories as $category) { ?>
-                                    <li><a href="<?=Url::toRoute(['/blog/', 'category' => $category->id]);?>" title="<?=$category->name;?>">#<?=$category->name;?></a></li>
+                                    <li><a href="<?=Url::toRoute(['/blog/', 'categoryId' => $category->id]);?>" title="<?=$category->name;?>">#<?=$category->name;?></a></li>
                                 <?php } ?>
                             </ul>
                             <!--a href="#" class="bttn orange" data-dismiss="modal">Применить</a-->
@@ -116,6 +117,10 @@ if($post->author && $post->author->profile->gravatar_email) {
                     </div>
                 </div>
             </div>
+        </div>
+    <?php } else { ?>
+        <div class="container item-page">
+            <p>Записи не найдены.</p>
         </div>
     <?php } ?>
 

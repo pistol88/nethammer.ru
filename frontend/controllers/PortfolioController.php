@@ -30,4 +30,19 @@ class PortfolioController extends Controller
             'page' => $page,
         ]);
     }
+
+    public function actionItem($id)
+    {
+        if(!$item = Item::findOne($id)) {
+            throw new NotFoundHttpException('Записи не существует.');
+        }
+
+        $categories = Category::find()->orderBy('sort DESC')->all();
+
+        return $this->render('item', [
+            'categories' => $categories,
+            'item' => $item,
+            'page' => $item,
+        ]);
+    }
 }

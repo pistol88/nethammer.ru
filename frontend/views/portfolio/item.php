@@ -24,7 +24,7 @@ if(empty($this->title)) {
         </ul>
         <div class="col-sm-9 col-md-6 case-text">
             <?php $i = 0; foreach($item->blocks as $block) { $i++; ?>
-                <div id="block<?=$block->id;?>"><?=$block->text;?></div>
+                <div id="block<?=$block->id;?>"><h2><?=$block->name;?></h2><?=$block->text;?></div>
             <?php } ?>
         </div>
 

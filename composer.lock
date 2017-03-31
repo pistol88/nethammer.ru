@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3442d37abf06f7d4ed0a9987201809ce",
+    "content-hash": "7a10161c4a9c204af147562b917b4909",
     "packages": [
         {
             "name": "abeautifulsite/simpleimage",
@@ -105,6 +105,120 @@
                 "yii"
             ],
             "time": "2017-02-28 16:15:10"
+        },
+        {
+            "name": "bower-asset/blueimp-canvas-to-blob",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blueimp/JavaScript-Canvas-to-Blob.git",
+                "reference": "10f6200baea6c7818f898a182760690d6d2c1cde"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Canvas-to-Blob/zipball/10f6200baea6c7818f898a182760690d6d2c1cde",
+                "reference": "10f6200baea6c7818f898a182760690d6d2c1cde",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "time": "2017-02-17 16:09:49"
+        },
+        {
+            "name": "bower-asset/blueimp-file-upload",
+            "version": "v9.18.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blueimp/jQuery-File-Upload.git",
+                "reference": "0b4af3c57b86b3c7147c4d7c75deb71a0133f0e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/jQuery-File-Upload/zipball/0b4af3c57b86b3c7147c4d7c75deb71a0133f0e3",
+                "reference": "0b4af3c57b86b3c7147c4d7c75deb71a0133f0e3",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/blueimp-canvas-to-blob": ">=2.1.1",
+                "bower-asset/blueimp-load-image": ">=1.13.0",
+                "bower-asset/blueimp-tmpl": ">=2.5.4",
+                "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "js/jquery.fileupload.js"
+                ],
+                "bower-asset-ignore": [
+                    "/*.*",
+                    "/cors",
+                    "css/demo-ie8.css",
+                    "css/demo.css",
+                    "css/style.css",
+                    "js/app.js",
+                    "js/main.js",
+                    "server",
+                    "test"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "File Upload widget with multiple file selection, drag&amp;drop support, progress bar, validation and preview images.",
+            "keywords": [
+                "bootstrap",
+                "chunk",
+                "cross-domain",
+                "cross-site",
+                "drag",
+                "drop",
+                "file",
+                "gae",
+                "go",
+                "jquery",
+                "multiple",
+                "php",
+                "preview",
+                "progress",
+                "python",
+                "resume",
+                "selection",
+                "upload",
+                "widget"
+            ]
+        },
+        {
+            "name": "bower-asset/blueimp-load-image",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blueimp/JavaScript-Load-Image.git",
+                "reference": "caf36d45d843b38b8763cb4a921d7ce51681a08c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/caf36d45d843b38b8763cb4a921d7ce51681a08c",
+                "reference": "caf36d45d843b38b8763cb4a921d7ce51681a08c",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "time": "2017-02-24 13:12:08"
+        },
+        {
+            "name": "bower-asset/blueimp-tmpl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blueimp/JavaScript-Templates.git",
+                "reference": "dc7631396cd541db5644aa2c651e342c68511aad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Templates/zipball/dc7631396cd541db5644aa2c651e342c68511aad",
+                "reference": "dc7631396cd541db5644aa2c651e342c68511aad",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "time": "2017-02-17 16:13:21"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -757,6 +871,89 @@
             "time": "2017-03-07 10:03:08"
         },
         {
+            "name": "league/flysystem",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/78b5cc4feb61a882302df4fbaf63b7662e5e4ccd",
+                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
+            },
+            "require-dev": {
+                "ext-fileinfo": "*",
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "^2.2",
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-fileinfo": "Required for MimeType",
+                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
+                "league/flysystem-copy": "Allows you to use Copy.com storage",
+                "league/flysystem-dropbox": "Allows you to use Dropbox storage",
+                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
+                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
+                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Filesystem abstraction: Many filesystems, one API.",
+            "keywords": [
+                "Cloud Files",
+                "WebDAV",
+                "abstraction",
+                "aws",
+                "cloud",
+                "copy.com",
+                "dropbox",
+                "file systems",
+                "files",
+                "filesystem",
+                "filesystems",
+                "ftp",
+                "rackspace",
+                "remote",
+                "s3",
+                "sftp",
+                "storage"
+            ],
+            "time": "2017-03-22 15:43:14"
+        },
+        {
             "name": "pheme/yii2-settings",
             "version": "dev-master",
             "source": {
@@ -988,6 +1185,55 @@
             "time": "2017-02-24 19:52:51"
         },
         {
+            "name": "trntv/yii2-file-kit",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trntv/yii2-file-kit.git",
+                "reference": "0b24b638b7bc8f41d75d4d5428188035052ee890"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/0b24b638b7bc8f41d75d4d5428188035052ee890",
+                "reference": "0b24b638b7bc8f41d75d4d5428188035052ee890",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/blueimp-file-upload": "^9.7.0",
+                "league/flysystem": "^1.0",
+                "yiisoft/yii2": "^2.0.0",
+                "yiisoft/yii2-jui": "^2.0.0"
+            },
+            "require-dev": {
+                "creocoder/yii2-flysystem": "~0.8",
+                "phpunit/phpunit": "~4.5.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "trntv\\filekit\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Eugene Terentev",
+                    "email": "eugene@terentev.net"
+                }
+            ],
+            "description": "Yii2 file upload and storage kit",
+            "time": "2017-01-16T10:32:27+00:00"
+        },
+        {
             "name": "voskobovich/yii2-many-many-behavior",
             "version": "v3.3.0.x-dev",
             "source": {
@@ -1050,12 +1296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "ec2697bbdd0447a1b16be8e2c25f19a405e68d0d"
+                "reference": "c72dc83fc3f1fdf09770740863d7c8be5765c7d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ec2697bbdd0447a1b16be8e2c25f19a405e68d0d",
-                "reference": "ec2697bbdd0447a1b16be8e2c25f19a405e68d0d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c72dc83fc3f1fdf09770740863d7c8be5765c7d7",
+                "reference": "c72dc83fc3f1fdf09770740863d7c8be5765c7d7",
                 "shasum": ""
             },
             "require": {
@@ -1142,7 +1388,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-03-24 11:18:05"
+            "time": "2017-03-30 14:28:26"
         },
         {
             "name": "yiisoft/yii2-authclient",
@@ -1707,7 +1953,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-03-25T03:34:50+00:00"
+            "time": "2017-03-25 03:34:50"
         },
         {
             "name": "codeception/verify",
@@ -1797,7 +2043,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2017-02-16T16:15:51+00:00"
+            "time": "2017-02-16 16:15:51"
         },
         {
             "name": "fzaninotto/faker",
@@ -1847,7 +2093,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-03-29T09:42:14+00:00"
+            "time": "2017-03-29 09:42:14"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1912,7 +2158,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2201,7 +2447,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-03-03T17:09:02+00:00"
+            "time": "2017-03-03 17:09:02"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2264,7 +2510,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-07T10:28:00+00:00"
+            "time": "2017-03-07 10:28:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2401,7 +2647,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-03-07T15:42:04+00:00"
+            "time": "2017-03-07 15:42:04"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -2450,7 +2696,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-03-07T07:36:57+00:00"
+            "time": "2017-03-07 07:36:57"
         },
         {
             "name": "phpunit/phpunit",
@@ -2532,7 +2778,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-20T17:41:26+00:00"
+            "time": "2017-03-20 17:41:26"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2591,7 +2837,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-03-07T08:47:31+00:00"
+            "time": "2017-03-07 08:47:31"
         },
         {
             "name": "psr/http-message",
@@ -2733,7 +2979,71 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04T10:23:55+00:00"
+            "time": "2017-03-04 10:23:55"
+        },
+        {
+            "name": "sebastian/comparator",
+            "version": "1.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/comparator.git",
+                "reference": "18a5d97c25f408f48acaf6d1b9f4079314c5996a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/18a5d97c25f408f48acaf6d1b9f4079314c5996a",
+                "reference": "18a5d97c25f408f48acaf6d1b9f4079314c5996a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "sebastian/diff": "~1.2",
+                "sebastian/exporter": "~1.2 || ~2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jeff Welch",
+                    "email": "whatthejeff@gmail.com"
+                },
+                {
+                    "name": "Volker Dusch",
+                    "email": "github@wallbash.com"
+                },
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@2bepublished.at"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Provides the functionality to compare PHP values for equality",
+            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "keywords": [
+                "comparator",
+                "compare",
+                "equality"
+            ],
+            "time": "2017-03-07T10:34:43+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -2785,7 +3095,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-03-07T07:26:53+00:00"
+            "time": "2017-03-07 07:26:53"
         },
         {
             "name": "sebastian/environment",
@@ -2835,7 +3145,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-03-07T12:59:58+00:00"
+            "time": "2017-03-07 12:59:58"
         },
         {
             "name": "sebastian/exporter",
@@ -2902,7 +3212,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2017-03-07T10:36:49+00:00"
+            "time": "2017-03-07 10:36:49"
         },
         {
             "name": "sebastian/global-state",
@@ -2953,7 +3263,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-02-23T14:11:06+00:00"
+            "time": "2017-02-23 14:11:06"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -2999,7 +3309,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-03-07T10:37:45+00:00"
+            "time": "2017-03-07 10:37:45"
         },
         {
             "name": "sebastian/recursion-context",
@@ -3052,7 +3362,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2017-03-08T08:21:15+00:00"
+            "time": "2017-03-08 08:21:15"
         },
         {
             "name": "sebastian/resource-operations",
@@ -3239,7 +3549,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-14T20:25:39+00:00"
+            "time": "2017-03-14 20:25:39"
         },
         {
             "name": "symfony/console",
@@ -3307,7 +3617,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-27T14:51:00+00:00"
+            "time": "2017-03-27 14:51:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3360,7 +3670,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T10:07:34+00:00"
+            "time": "2017-02-21 10:07:34"
         },
         {
             "name": "symfony/debug",
@@ -3416,7 +3726,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-18T17:35:19+00:00"
+            "time": "2017-02-18 17:35:19"
         },
         {
             "name": "symfony/dom-crawler",
@@ -3472,7 +3782,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T10:07:34+00:00"
+            "time": "2017-02-21 10:07:34"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -3535,7 +3845,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-21T21:44:47+00:00"
+            "time": "2017-03-21 21:44:47"
         },
         {
             "name": "symfony/finder",
@@ -3584,7 +3894,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-20T10:06:58+00:00"
+            "time": "2017-03-20 10:06:58"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3698,7 +4008,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-22T19:08:11+00:00"
+            "time": "2017-03-22 19:08:11"
         },
         {
             "name": "webmozart/assert",
@@ -3756,12 +4066,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "6065b9784078881ff7b0301004342d210fec77b0"
+                "reference": "ab01ecb8abceff4ce1922de42373b4a91bbe3e4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/6065b9784078881ff7b0301004342d210fec77b0",
-                "reference": "6065b9784078881ff7b0301004342d210fec77b0",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/ab01ecb8abceff4ce1922de42373b4a91bbe3e4f",
+                "reference": "ab01ecb8abceff4ce1922de42373b4a91bbe3e4f",
                 "shasum": ""
             },
             "require": {
@@ -3795,7 +4105,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2017-03-21T14:37:54+00:00"
+            "time": "2017-03-30T19:22:56+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -3842,7 +4152,7 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2017-02-11T20:27:55+00:00"
+            "time": "2017-02-11 20:27:55"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -3895,7 +4205,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2017-03-16T20:58:28+00:00"
+            "time": "2017-03-16 20:58:28"
         }
     ],
     "aliases": [],
@@ -3904,7 +4214,8 @@
         "dektrium/yii2-user": 20,
         "dektrium/yii2-rbac": 20,
         "kartik-v/yii2-widget-select2": 20,
-        "asofter/yii2-imperavi-redactor": 20
+        "asofter/yii2-imperavi-redactor": 20,
+        "trntv/yii2-file-kit": 0
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -6,6 +6,13 @@ $this->title = $page->seo->title;
 if(empty($this->title)) {
     $this->title = $page->name;
 }
+
+$coverImage = false;
+foreach($page->getImages() as $image) {
+    if(!$image->isMain) {
+        $coverImage = $image->getUrl();
+    }
+}
 ?>
 
 <div id="fullpage" class="case">
@@ -14,7 +21,7 @@ if(empty($this->title)) {
         <div class="col-sm-2 right-logo">
             <a href="/"><img src="/image/svg/logo.svg" alt=""></a>
         </div>
-        <div class="full-screen" style="background:url(<?=$item->getImage()->getUrl();?>">
+        <div class="full-screen" <?php if($coverImage) { ?>style="background:url(<?=$coverImage;?>"<?php } ?>>
             <h1><?=$item->name;?></h1>
         </div>
         <ul class="col-sm-3 col-md-3 sidebarmenu">

@@ -31,7 +31,7 @@ if(empty($this->title)) {
                         <?=$vacancy->name;?>
                     </div>
                     <div class="modal-body form-style">
-                        <?=$vacancy->text;?>
+                        <?=nl2br($vacancy->text);?>
                         <form action="">
                             <em style="color: #ffa834" class="pull-right">Все поля обязательны для заполнения</em>
                             <input type="text" placeholder="Имя" style="clear:none;">

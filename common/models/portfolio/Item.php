@@ -22,7 +22,7 @@ class Item extends \yii\db\ActiveRecord
         return [
             'images' => [
                 'class' => 'pistol88\gallery\behaviors\AttachImages',
-                'mode' => 'single',
+                'mode' => 'gallery',
             ],
             'slug' => [
                 'class' => 'Zelenin\yii\behaviors\Slug',
@@ -50,7 +50,7 @@ class Item extends \yii\db\ActiveRecord
             [['category_id'], 'integer'],
             [['name'], 'required'],
             [['name', 'slug', 'date'], 'string', 'max' => 155],
-            [['anons'], 'string', 'max' => 512],
+            [['anons'], 'string', 'max' => 300],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -65,6 +65,7 @@ class Item extends \yii\db\ActiveRecord
             'category_id' => 'Категория',
             'name' => 'Название',
             'slug' => 'Слуг',
+            'anons' => 'Анонс',
             'date' => 'Дата сдачи',
         ];
     }

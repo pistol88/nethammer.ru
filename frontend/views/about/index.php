@@ -13,7 +13,10 @@ if(empty($this->title)) {
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-10 col-sm-offset-2">
+                <div class="hidden-xs col-sm-2">
+                    <img src="/image/svg/molot.svg" alt="">
+                </div>
+                <div class="col-xs-12 col-sm-10">
                     <div class="description">
                         <?=$page->text;?>
                     </div>

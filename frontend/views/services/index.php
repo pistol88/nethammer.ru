@@ -26,6 +26,7 @@ if(empty($this->title)) {
                 <?php foreach($services as $service) { ?>
                     <div class="col-xs-12 col-sm-10 col-sm-offset-2">
                         <?php if($pages = $service->pages) { ?>
+                            <p class="h1"><?=$service->name;?></p>
                             <?=$service->text;?>
                             <div class="owl-carousel-services">
                                 <?php $i = 0; foreach($pages as $page) { $i++; ?>

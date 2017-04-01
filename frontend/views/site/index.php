@@ -24,12 +24,12 @@ if(empty($this->title)) {
                     <div class="hidden-xs col-sm-2">
                         <?php if($slideImage) { ?>
                             <img src="<?=$slideImage;?>" width="169" alt="<?=$slide->name;?>">
+                        <?php } elseif($i == 1) { ?>
+                            <img src="/image/svg/molot.svg" alt="Нетхаммер">
                         <?php } ?>
                     </div>
                     <div class="col-xs-12 col-sm-10">
-                        <?php if($i == 1) { ?>
-                            <img class="logo" src="/frontend/web/image/svg/logo.svg" alt="<?=yii::$app->name;?>">
-                        <?php } ?>
+
                         <div class="description">
                             <?=nl2br($slide->text);?>
                         </div>

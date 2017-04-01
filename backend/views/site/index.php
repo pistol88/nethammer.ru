@@ -28,7 +28,7 @@ $this->title = 'Нетхаммер';
                 'link',
                 'link_anchor',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}', 'controller' => 'slide'],
             ],
         ]); ?>
     </div>

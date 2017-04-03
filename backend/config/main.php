@@ -1,4 +1,6 @@
 <?php
+Yii::setAlias('@storageUrl','/frontend/web/images');
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -14,6 +16,14 @@ return [
     'modules' => [],
     'name' => 'Алькупон',
     'components' => [
+        'fileStorage' => [
+            'class' => '\trntv\filekit\Storage',
+            'baseUrl' => '@storageUrl/source',
+            'filesystem'=> function() {
+                $adapter = new \League\Flysystem\Adapter\Local(dirname(dirname(__DIR__)).'/frontend/web/images/source');
+                return new League\Flysystem\Filesystem($adapter);
+            },
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],

@@ -19,7 +19,7 @@ if(empty($this->title)) {
             <div class="row">
                 <div class="col-sm-12 map">
                     <div>
-                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3AuRiVi3cQmPKeqTv7JCluHgE5jAUSC3K3&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;scroll=false"></script>
+                        <script type="text/javascript" charset="utf-8" async src="<?=yii::$app->settings->get('frontend.map');?>"></script>
                     </div>
                 </div>
                 <div class="col-sm-12 details">

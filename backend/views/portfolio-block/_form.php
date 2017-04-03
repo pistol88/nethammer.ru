@@ -7,11 +7,16 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\portfolio\Block */
 /* @var $form yii\widgets\ActiveForm */
+if($model->isNewRecord) {
+    $action = ['/portfolio-block/create'];
+} else {
+    $action = ['/portfolio-block/update', 'id' => $model->id];
+}
 ?>
 
 <div class="block-form">
 
-    <?php $form = ActiveForm::begin(['action' => Url::toRoute(['/portfolio-block/create'])]); ?>
+    <?php $form = ActiveForm::begin(['action' => Url::toRoute($action)]); ?>
 
     <?= $form->field($model, 'item_id')->hiddenInput()->label(false) ?>
 

@@ -29,9 +29,9 @@ if(empty($this->title)) {
                         <?php } ?>
                     </ul>
                     <div class="portfolio-list">
-                        <?php foreach($items as $item) { ?>
-                            <div class="item dark isotope-item category<?=$item->category_id;?>">
-                                <a href="<?=Url::toRoute(['/portfoio/item', 'id' => $item->id]);?>" style="background-image:url(<?=$item->image->getUrl('420x');?>)">
+                        <?php $i = 0; foreach($items as $item) { $i++; ?>
+                            <div class="item <?php if($i == 0) echo 'dark'; ?> isotope-item category<?=$item->category_id;?>">
+                                <a href="<?=Url::toRoute(['/portfolio/item', 'id' => $item->id]);?>" style="background-image:url(<?=$item->image->getUrl();?>)">
                                     <p class="h3"><?=$item->name;?></p>
                                     <div class="descript"><?=$item->anons;?></div>
                                 </a>

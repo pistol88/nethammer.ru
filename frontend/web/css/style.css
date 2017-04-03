@@ -779,3 +779,7 @@ section .container.services {
 .attention p:last-child {
     margin-bottom: 0;
 }
+
+.home-slide {
+    height: 100vh !important;
+}

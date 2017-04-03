@@ -7,7 +7,7 @@ if(empty($this->title)) {
 ?>
 <div id="fullpage">
 
-    <?php $i = 0; foreach($slides as $slide) { $i++; ?>
+    <?php $i = 0; foreach($slides as $key => $slide) { $i++; ?>
         <?php
         if($slide->hasImage()) {
             $slideImage = $slide->getImage()->getUrl();
@@ -17,9 +17,11 @@ if(empty($this->title)) {
             $slideImage = false;
         }
         ?>
-        <section class="container-fluid anchor" id="<?=$slide->background;?>">
+        <section class="home-slide container-fluid anchor" id="<?=$slide->background;?>">
             <div class="container">
-                <a class="animate" href="#slide<?=$slide->id;?>"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <?php if(isset($slides[$key+1]) && $nextSLide = $slides[$key+1]) { ?>
+                    <a class="animate" href="#slide<?=$nextSLide->id;?>"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <?php } ?>
                 <div class="row">
                     <div class="hidden-xs col-sm-2">
                         <?php if($slideImage) { ?>

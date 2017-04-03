@@ -85,6 +85,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
     background: linear-gradient(to right, #f7f7f7, #faeae2);
 }
 .bttn {
+    border: none;
     line-height: 44px;
     padding: 0 30px;
     display: inline-block;
@@ -778,4 +779,10 @@ section .container.services {
 }
 .attention p:last-child {
     margin-bottom: 0;
+}
+.contactFormMess{
+    margin: 0;
+    margin-top: 44px;
+    font-size: 20px;
+    padding: 8px 20px;
 }

@@ -1,6 +1,9 @@
 <?php
 $this->title = $page->seo->title;
-
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\widgets\Pjax;
+use yii\bootstrap\Alert;
 if(empty($this->title)) {
     $this->title = $page->name;
 }
@@ -47,20 +50,39 @@ if(empty($this->title)) {
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-xs-12 col-sm-10 col-sm-offset-2">
                     <div class="description">
                         <?=yii::$app->settings->get('frontend.phone');?>
                     </div>
                     <a href="mailto:<?=yii::$app->settings->get('frontend.email');?>"><?=yii::$app->settings->get('frontend.email');?></a>
                 </div>
-                <div class="col-xs-12 col-sm-10 col-sm-offset-2">
-                    <form class="description form-style" action="">
-                        <input type="text" placeholder="Имя" style="width: 45%;float:left;margin-right:10%;">
-                        <input type="text" placeholder="E-mail или телефон" style="width: 45%;">
-                        <textarea name="" id="" cols="60" rows="5" placeholder="Расскажите о себе"></textarea>
-                        <a href="#" class="bttn blue" data-dismiss="modal">Отправить</a>
-                    </form>
-                </div>
+                <div style="clear:both"></div>                    
+                <?php Pjax::begin(); ?>
+                <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')){ ?>
+                <?php  
+                    Alert::begin(['options' => ['class' => 'alert-warning contactFormMess',],]);
+                        echo Yii::$app->session->getFlash('contactFormSubmitted'); 
+                    Alert::end(); 
+                ?>
+                <?php } ?>
+                <div class="col-xs-12 col-sm-10 col-sm-offset-2">        
+                    <?php $form = ActiveForm::begin(['options' => ['class' => 'description form-style','data-pjax' => true]]); ?>
+                    <div style="width: 45%;float:left;">
+                        <?= $form->field($model, 'name')->textInput(['style' => '','placeholder'=>'Имя'])->label(false) ?>
+                    </div>
+                    <div style="width: 45%;float:right">
+                        <?= $form->field($model, 'email')->textInput(['style' => '','placeholder'=>'E-mail или телефон'])->label(false) ?>
+                    </div>
+                    <div style="clear:both">
+                        <?= $form->field($model, 'info')->textarea(['rows' => 5,'cols' => 60,'placeholder'=>'Расскажите о себе'])->label(false) ?>
+                    </div>
+                        <?= Html::submitButton('Отправить', ['class' => 'bttn blue', 'name' => 'contact-button']) ?>
+                        <?= $rezult ?>
+                    <?php ActiveForm::end(); ?>
+                
+                </div>             
+                <?php Pjax::end(); ?>
             </div>
         </div>
 

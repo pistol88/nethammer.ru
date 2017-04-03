@@ -4,16 +4,18 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\Html;
 
 /**
- * ContactForm is the model behind the contact form.
+ * VacancyForm is the model behind the vacancy form.
  */
-class ContactForm extends Model
+class VacancyForm extends Model
 {
     public $name;
     public $email;
     public $info;
-
+    public $link;
+    public $vacancy_id;
 
     /**
      * @inheritdoc
@@ -22,11 +24,12 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'info'], 'required'],
+            [['name', 'email', 'info', 'vacancy_id'], 'required'],
+            ['vacancy_id', 'integer'],
             ['name', 'string', 'length' => [4, 13]],
             ['email', 'string', 'length' => [4, 30]],
             ['email', 'match', 'pattern' => '/[0-9@]/i'],
-            ['info', 'string', 'length' => [4]],
+            [['link', 'info'], 'string', 'length' => [4]],
         ];
     }
     public function sendEmail($post)
@@ -34,7 +37,7 @@ class ContactForm extends Model
         return Yii::$app->mailer->compose('contactForm', $post)
             ->setTo(yii::$app->settings->get('frontend.email'))
             ->setFrom($post['email'])
-            ->setSubject('Форма контакты')
+            ->setSubject('Форма вакансии от ' . Html::encode($post['name']))
             ->send();          
     }
 }

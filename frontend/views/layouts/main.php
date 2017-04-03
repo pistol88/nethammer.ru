@@ -4,9 +4,12 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 use frontend\assets\AppAsset;
 
 AppAsset::register($this);
+
+$formModel = new \frontend\models\ContactForm;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -32,12 +35,12 @@ AppAsset::register($this);
     <div class="container">
         <div class="collapse navbar-collapse" id="menu" role="navigation">
             <ul class="main-menu col-sm-offset-2 navbar">
-                <li <?php if(substr_count($_SERVER['REQUEST_URI'], '/portfolio/')) echo 'class="active"'; ?>><a href="/portfolio/">Портфолио</a></li>
-                <li <?php if(substr_count($_SERVER['REQUEST_URI'], '/services/')) echo 'class="active"'; ?>><a href="/services/">Услуги</a></li>
-                <li <?php if(substr_count($_SERVER['REQUEST_URI'], '/blog/')) echo 'class="active"'; ?>><a href="/blog/">Блог</a></li>
-                <li <?php if(substr_count($_SERVER['REQUEST_URI'], '/about/')) echo 'class="active"'; ?>><a href="/about/">О нас</a></li>
-                <li <?php if(substr_count($_SERVER['REQUEST_URI'], '/vacancies/')) echo 'class="active"'; ?>><a href="/vacancies/">Вакансии</a></li>
-                <li <?php if(substr_count($_SERVER['REQUEST_URI'], '/contacts/')) echo 'class="active"'; ?>><a href="/contacts/">Контакты</a></li>
+                <li <?php if(yii::$app->controller->id  == 'portfolio') echo 'class="active"'; ?>><a href="/portfolio/">Портфолио</a></li>
+                <li <?php if(yii::$app->controller->id  == 'services') echo 'class="active"'; ?>><a href="/services/">Услуги</a></li>
+                <li <?php if(yii::$app->controller->id  == 'blog') echo 'class="active"'; ?>><a href="/blog/">Блог</a></li>
+                <li <?php if(yii::$app->controller->id  == 'about') echo 'class="active"'; ?>><a href="/about/">О нас</a></li>
+                <li <?php if(yii::$app->controller->id  == 'vacancies') echo 'class="active"'; ?>><a href="/vacancies/">Вакансии</a></li>
+                <li <?php if(yii::$app->controller->id  == 'contacts') echo 'class="active"'; ?>><a href="/contacts/">Контакты</a></li>
             </ul>
         </div>
     </div>
@@ -54,10 +57,19 @@ AppAsset::register($this);
                 Стать клиентом
             </div>
             <div class="modal-body form-style">
-                <input type="text" placeholder="Имя">
-                <input class="error" type="text" placeholder="E-mail или телефон" style="width: 280px;">
-                <textarea name="" id="" cols="60" rows="5" placeholder="Расскажите о себе"></textarea>
-                <a href="#" class="bttn blue" data-dismiss="modal">Отправить</a>
+                <?php $form = ActiveForm::begin(['action' => ['/contacts/']]); ?>
+                <div style="width: 45%;float:left;">
+                    <?= $form->field($formModel, 'name')->textInput(['style' => '', 'placeholder' => 'Имя'])->label(false) ?>
+                </div>
+                <div style="width: 45%;float:right">
+                    <?= $form->field($formModel, 'email')->textInput(['style' => '', 'placeholder' => 'E-mail или телефон'])->label(false) ?>
+                </div>
+                <div style="clear:both">
+                    <?= $form->field($formModel, 'info')->textarea(['rows' => 5, 'cols' => 60, 'placeholder' => 'Расскажите о задаче или задайте вопрос'])->label(false) ?>
+                </div>
+                <?= Html::submitButton('Отправить', ['class' => 'bttn blue', 'name' => 'contact-button']) ?>
+                <?= $rezult ?>
+                <?php ActiveForm::end(); ?>
             </div>
         </div>
     </div>

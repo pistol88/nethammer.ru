@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use common\models\Vacancy;
 use common\models\Page;
+use frontend\models\VacancyForm;
 
 class VacanciesController extends Controller
 {
@@ -20,9 +21,24 @@ class VacanciesController extends Controller
 
         $page = Page::find()->where(['template' => 'vacancy'])->one();
 
+        $model = new VacancyForm();
+
+        $result = false;
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail(Yii::$app->request->post())) {
+                \Yii::$app->session->setFlash('vacancyFormSubmitted', "Сообщение отправлено");
+                $result = true;
+            }
+
+            $model = new VacancyForm();
+        }
+
         return $this->render('index', [
-            'vacancies' => $vacancies,
             'page' => $page,
+            'vacancies' => $vacancies,
+            'result' => $result,
+            'model' => $model,
         ]);
     }
 }

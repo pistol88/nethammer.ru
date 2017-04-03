@@ -85,6 +85,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
     background: linear-gradient(to right, #f7f7f7, #faeae2);
 }
 .bttn {
+    border: none;
     line-height: 44px;
     padding: 0 30px;
     display: inline-block;

@@ -1,9 +1,14 @@
 <?php
+use yii\bootstrap\Alert;
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+
 $this->title = $page->seo->title;
 
 if(empty($this->title)) {
     $this->title = $page->name;
 }
+
 ?>
 <div id="fullpage">
 
@@ -14,6 +19,13 @@ if(empty($this->title)) {
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-10 col-sm-offset-2">
+                    <?php if (Yii::$app->session->hasFlash('vacancyFormSubmitted')){ ?>
+                        <?php
+                        Alert::begin(['options' => ['class' => 'alert-success vacancyFormMess']]);
+                        echo Yii::$app->session->getFlash('vacancyFormSubmitted');
+                        Alert::end();
+                        ?>
+                    <?php } ?>
                     <div class="description">
                         <?=$page->text;?>
                     </div>
@@ -32,22 +44,19 @@ if(empty($this->title)) {
                     </div>
                     <div class="modal-body form-style">
                         <?=nl2br($vacancy->text);?>
-                        <form action="">
-                            <em style="color: #ffa834" class="pull-right">Все поля обязательны для заполнения</em>
-                            <input type="text" placeholder="Имя" style="clear:none;">
-                            <input type="text" placeholder="E-mail или телефон" style="width: 280px;">
-                            <textarea name="" id="" cols="60" rows="5" placeholder="Расскажите о себе"></textarea>
+                        <?php $form = ActiveForm::begin(); ?>
+                            <!--em style="color: #ffa834" class="pull-right">Все поля обязательны для заполнения</em-->
+                            <?= $form->field($model, 'vacancy_id')->hiddenInput(['value' => $vacancy->id])->label(false) ?>
+                            <?= $form->field($model, 'name')->textInput(['style' => '', 'placeholder' => 'Имя'])->label(false) ?>
+                            <?= $form->field($model, 'email')->textInput(['style' => '', 'placeholder' => 'E-mail или телефон'])->label(false) ?>
+                            <?= $form->field($model, 'info')->textarea(['rows' => 5, 'cols' => 60, 'placeholder' => 'Расскажите о себе'])->label(false) ?>
                             <div class="row upload-resume">
-                                <div class="col-sm-8">
-                                    <input type="file" placeholder="Не более 10 мб">
-                                    <input style="display:none;" type="text" placeholder="Ссылка на резюме">
-                                </div>
-                                <div class="col-sm-4">
-                                    Или <a href="#">ссылкой</a><a style="display:none;" href="#">файлом</a>
+                                <div class="col-sm-12">
+                                    <?= $form->field($model, 'link')->textInput(['style' => '', 'placeholder' => 'Ссылка на резюме'])->label(false) ?>
                                 </div>
                             </div>
-                            <a href="#" class="bttn blue" data-dismiss="modal">Отправить</a>
-                        </form>
+                            <?= Html::submitButton('Отправить', ['class' => 'bttn blue']) ?>
+                        <?php ActiveForm::end(); ?>
                     </div>
                 </div>
             </div>

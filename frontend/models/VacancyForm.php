@@ -5,6 +5,7 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use yii\helpers\Html;
+use common\models\feedback\Vacancy;
 
 /**
  * VacancyForm is the model behind the vacancy form.
@@ -34,9 +35,29 @@ class VacancyForm extends Model
     }
     public function sendEmail($post)
     {
+        $post = $post['VacancyForm'];
+
+        $vacancy = new Vacancy;
+        $vacancy->vacancy_id = $post['vacancy_id'];
+        $vacancy->person_name = $post['name'];
+        $vacancy->person_contacts = $post['email'];
+        $vacancy->person_about = $post['info'];
+        $vacancy->summary_file = null;
+        $vacancy->summary_link = $post['link'];
+        $vacancy->time = date('Y-m-d H:i:s');
+        if($vacancy->validate()) {
+            $vacancy->save();
+        }
+
+        if(substr_count($post['email'], '@')) {
+            $email = $post['email'];
+        } else {
+            $email = yii::$app->settings->get('frontend.email');
+        }
+
         return Yii::$app->mailer->compose('contactForm', $post)
             ->setTo(yii::$app->settings->get('frontend.email'))
-            ->setFrom($post['email'])
+            ->setFrom($email)
             ->setSubject('Форма вакансии от ' . Html::encode($post['name']))
             ->send();          
     }

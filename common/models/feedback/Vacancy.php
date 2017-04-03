@@ -39,8 +39,8 @@ class Vacancy extends \yii\db\ActiveRecord
             [['vacancy_id'], 'integer'],
             [['person_about'], 'string'],
             [['time'], 'safe'],
-            [['person_name', 'person_contacts', 'summary_file', 'summary_link'], 'string', 'max' => 55],
-            [['vacancy_id'], 'exist', 'skipOnError' => true, 'targetClass' => Vacancy::className(), 'targetAttribute' => ['vacancy_id' => 'id']],
+            [['person_name', 'person_contacts', 'summary_file', 'summary_link'], 'string', 'max' => 95],
+            [['vacancy_id'], 'exist', 'skipOnError' => true, 'targetClass' => VacancyModel::className(), 'targetAttribute' => ['vacancy_id' => 'id']],
         ];
     }
 

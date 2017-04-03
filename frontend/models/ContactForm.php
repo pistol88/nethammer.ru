@@ -31,9 +31,17 @@ class ContactForm extends Model
     }
     public function sendEmail($post)
     {
+        $post = $post['ContactForm'];
+
+        if(substr_count($post['email'], '@')) {
+            $email = $post['email'];
+        } else {
+            $email = yii::$app->settings->get('frontend.email');
+        }
+
         return Yii::$app->mailer->compose('contactForm', $post)
             ->setTo(yii::$app->settings->get('frontend.email'))
-            ->setFrom($post['email'])
+            ->setFrom($email)
             ->setSubject('Форма контакты')
             ->send();          
     }

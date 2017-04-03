@@ -27,7 +27,7 @@ class VacanciesController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->request->post())) {
-                \Yii::$app->session->setFlash('vacancyFormSubmitted', "Сообщение отправлено");
+                \Yii::$app->session->setFlash('vacancyFormSubmitted', "Сообщение отправлено, заявка будет рассмотрена в течение 2х суток.");
                 $result = true;
             }
 

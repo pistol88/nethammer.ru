@@ -784,3 +784,7 @@ section .container.services {
 .home-slide {
     height: 100vh !important;
 }
+
+.alert-success {
+    text-align: center;
+}

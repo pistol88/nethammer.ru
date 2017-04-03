@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+use common\models\feedback\Contact;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -32,6 +33,16 @@ class ContactForm extends Model
     public function sendEmail($post)
     {
         $post = $post['ContactForm'];
+
+        $contact = new Contact;
+        $contact->person_name = $post['name'];
+        $contact->person_contacts = $post['email'];
+        $contact->text = $post['info'];
+        $contact->time = date('Y-m-d H:i:s');
+        
+        if($contact->validate()) {
+            $contact->save();
+        }
 
         if(substr_count($post['email'], '@')) {
             $email = $post['email'];

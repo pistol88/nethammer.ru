@@ -376,6 +376,7 @@ section .link {
     font-size: 14px;
     margin-bottom: 25px;
     border-radius: 20px;
+    min-height: 204px;
 }
 .partner img {
     display: block;

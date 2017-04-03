@@ -91,26 +91,8 @@ if($post && $post->author && $post->author->profile->gravatar_email) {
                         <div class="clearfix">
                             Комментарии - 0
                         </div>
-                        <div class="comment-item">
-                            <div class="user-name">mrMaddy29</div>
-                            <div class="comment-date">23 февраля 2017 в 12:26</div>
-                            <div class="comment-text">
-                                Хабр твитер и бла бла бла..
-                            </div>
-                            <a href="#commentForm" class="answer animate">Ответить</a>
-                        </div>
-                        <div class="comment-item">
-                            <div class="user-name">mrMaddy29</div>→
-                            <div class="user-name">mrMaddy29</div>
-                            <div class="comment-date">23 февраля 2017 в 12:26</div>
-                            <div class="comment-text">
-                                Хабр твитер и бла бла бла..
-                            </div>
-                            <a href="#commentForm" class="answer animate">Ответить</a>
-                        </div>
                         <form class="form-style" id="commentForm" action="">
                             <input style="float: left;margin-right: 30px;" type="text" placeholder="Имя">
-                            <span>Для <b>avost</b></span>
                             <textarea name="" id="" cols="60" rows="5" placeholder="Комментарий"></textarea>
                             <a href="#" class="bttn orange" data-dismiss="modal">Прокомментировать</a>
                         </form>

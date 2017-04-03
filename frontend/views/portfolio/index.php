@@ -15,12 +15,12 @@ if(empty($this->title)) {
         </div>
         <div class="container">
             <div class=row">
-                <div class="col-md-12"><?=$page->text;?></div>
+                <div class="col-md-12"><?=$page->name;?></div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-10 col-sm-offset-2">
                     <div class="description">
-                        <?=$page->name;?>
+                        <?=$page->text;?>
                     </div>
                     <ul id="filters">
                         <li class="active"><a data-filter="*">Все</a></li>

@@ -68,7 +68,7 @@ $formModel = new \frontend\models\ContactForm;
                     <?= $form->field($formModel, 'info')->textarea(['rows' => 5, 'cols' => 60, 'placeholder' => 'Расскажите о задаче или задайте вопрос'])->label(false) ?>
                 </div>
                 <?= Html::submitButton('Отправить', ['class' => 'bttn blue', 'name' => 'contact-button']) ?>
-                <?= $rezult ?>
+
                 <?php ActiveForm::end(); ?>
             </div>
         </div>

@@ -1,9 +1,7 @@
 // Кнопка наверх
-
 $(document).ready(function () {
     $(document.body).append('<a id="back_top" href="#"></a>');
     $('#back_top').hide();
-
     $(window).scroll(function () {
         if ($(this).scrollTop() > 490) {
             $('#back_top').fadeIn('slow');
@@ -11,7 +9,6 @@ $(document).ready(function () {
             $('#back_top').fadeOut('slow');
         };
     });
-
     $('#back_top').on('click', function (e) {
         e.preventDefault();
         $('html, body').animate({
@@ -19,16 +16,12 @@ $(document).ready(function () {
         }, 800);
         $('#back_top').fadeOut('slow').stop();
     });
-});
-
+}); 
 // Фильтрация для input
-
 $('input.num').keyup(function () {
     this.value = this.value.replace(/[^0-9\.]/g, '');
 });
-
 // Плавный переход по якорям
-
 $('header a[href^="#"]').click(function(){
         var el = $(this).attr('href');
         $('body').animate({
@@ -41,35 +34,25 @@ $('a.animate').click(function(){
             scrollTop: $(el).offset().top - 0}, 800);
         return false; 
 });
-
 // Переключаем реквизиты
-
 $('.details a[data-toggle=collapse]').on('click', function(){
     $(this).remove();
 });
-
 // Переключает фильтр в портфолио
-
 $('#filters li').on('click', function(){    
     $('#filters li').removeClass('active');
     $(this).addClass('active');
 });
-
 // Выбор фильтров в разделе Технология
-
 $('#chuseTags #tags-filter li').on('click', function(){
     $(this).toggleClass('active');
 });
-
 // Загрузка файла/ссылки резюме
-
 $('.upload-resume a').on('click', function(){
     $('.upload-resume a').toggle();
     $('.upload-resume input').toggle();
 });
-
 // Навигация для кейса
-
 $(window).scroll(function () {
     if ($(this).scrollTop() >= 351) {
         $('.sidebarmenu').addClass('sticky-sidebar');
@@ -83,9 +66,7 @@ $('.sidebarmenu a').on('click', function(){
     $('.sidebarmenu li').removeClass('active');
     $(this).closest('li').addClass('active');
 });
-
 // Смена активного пункта при прокрутке кейса
-
 var lastId,
 topMenu = $(".sidebarmenu"),
     topMenuHeight = topMenu.outerHeight() + 15,
@@ -113,11 +94,8 @@ $(window).scroll(function () {
 });
 
 // Мобильная менюшка
-
 $('.navbar-toggle').on('click', function(){
-    $('header').toggleClass('mobile-menu');
-    $('.navbar-toggle i').toggle();
-});
+});$('#menu').on('shown.bs.collapse', function () {    $('.navbar-toggle i').toggle();    $('header').toggleClass('mobile-menu');});$('#menu').on('hidden.bs.collapse', function () {    $('.navbar-toggle i').toggle();    $('header').toggleClass('mobile-menu');});
 //$('#fullpage').on('click', function(){
 //    $('.navbar-collapse').collapse('hide');
 //    $('header').removeClass('mobile-menu');

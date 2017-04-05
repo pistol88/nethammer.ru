@@ -53,7 +53,8 @@ if(empty($this->title)) {
                 
                 <div class="col-xs-12 col-sm-10 col-sm-offset-2">
                     <div class="description">
-                        <?=yii::$app->settings->get('frontend.phone');?>
+						<p><?=nl2br(yii::$app->settings->get('frontend.address'));?></p>
+                        <p><?=yii::$app->settings->get('frontend.phone');?></p>
                     </div>
                     <a href="mailto:<?=yii::$app->settings->get('frontend.email');?>"><?=yii::$app->settings->get('frontend.email');?></a>
                 </div>

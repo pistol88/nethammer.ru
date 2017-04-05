@@ -158,7 +158,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
 }
 
 /* Главная страница */
-
+.no-scrolling {	overflow: hidden;}
 .navbar-toggle {
     float: left;
     margin: 0;
@@ -176,7 +176,7 @@ header.container-fluid {
 .main-menu {
     list-style-type: none;
     padding-left: 0;
-    margin-top: 15px;
+    margin-top: 12px;
     min-height: initial;
     margin-bottom: initial;
 }
@@ -200,7 +200,7 @@ header.container-fluid {
 }
 section .container {
     padding-top: 100px;
-    font-size: 28px;
+    font-size: 27px;
 }
 #command {
     background: url(../image/svg/koleso.svg) no-repeat bottom right;
@@ -208,12 +208,12 @@ section .container {
     height: 100%;
 }
 #service {
-    background: url(../image/svg/magnit.svg) no-repeat 90% 50%;
+    background: url(../image/svg/magnit.svg) no-repeat bottom right;
     background-size: 30%;
     height: 100%;
 }
 #tecnology {
-    background: url(../image/svg/telephone.svg) no-repeat  100% 50%;
+    background: url(../image/svg/telephone.svg) no-repeat bottom right;
     background-size: 60% 60%;
     height: 100%;
 }
@@ -224,7 +224,7 @@ section .logo {
 section .description {
     clear: both;
     margin-top: 60px;
-    max-width: 540px;
+    max-width: 571px;
 }
 section .link {
     margin: 25px 0;
@@ -240,10 +240,10 @@ section .link {
 }
 .right-logo {
     z-index:9999;
-    margin-top:30px;
+    margin-top:27px;
     margin-bottom: 30px;
     max-width:150px;
-    float: left;
+    float: left;    position: fixed;    top: 0;    left: 30px;
 }
 
 /* Модалка стать клиентом */
@@ -388,14 +388,11 @@ section .link {
 }
 
 /* Контакты */
-
+.map {	height: 300px;	padding: 0;}
 .map > div , #details {    
     box-shadow: 0px 1px 20px -5px rgba(0, 0, 0, 0.2);
-}
-.details {
-    margin-top: -23px;
-    background: linear-gradient(to top, #f7f7f7, #f7f7f7, #f7f7f7, transparent);
-    font-size: 14px;
+}.details a {	margin-bottom: 0;}
+.details {    margin-top: -90px;    background: linear-gradient(to top, #f7f7f7, #f7f7f7, #f7f7f7, transparent);    font-size: 14px;    padding: 30px 15px 15px;
 }
 .details a {
     margin-right: 30px;
@@ -646,7 +643,7 @@ section .link {
 
 .send-resume .modal-body {
     padding-top: 0;
-    padding-bottom: 30px;
+    padding-bottom: 30px;		line-height: 22px;
 }
 .send-resume p {
     line-height: 24px;
@@ -709,6 +706,10 @@ section .container.services {
     padding-left: 20px;
 }
 .services p {
+    font-size: 16px;
+    line-height: 28px;
+}
+.services ul li {
     font-size: 16px;
     line-height: 28px;
 }
@@ -789,3 +790,32 @@ section .container.services {
 .alert-success {
     text-align: center;
 }
+/* О нас */
+.description-about {	width: 700px;    font-size: 24px;}
+ 
+.text img {
+	padding: 6px;
+}
+ 
+ 
+.intro-scroller { position: absolute; left: 0px; text-align: center; z-index: 9999;
+width: 100%; bottom:12px; }
+.intro-scroller p{color:#000;}
+.scroll-down{ background-color: #1E1E1E; width:100%; height:60px; position:center; text-align:center; }
+.custom-scroll{ color:#000; }
+.mouse-icon { border: 2px solid; border-radius: 15px; bottom: 70px; height: 50px; left: 0; margin: 0 auto; position: absolute; right: 0;
+width: 27px; cursor: pointer; -webkit-transition: all .3s linear; -moz-transition: all .3s linear; -ms-transition: all .3s linear; -o-transition: all .3s linear; transition: all .3s linear; }
+.mouse-icon:hover {opacity: 0.3 !important;-webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s;transition: all .3s;}
+.mouse-icon .wheel { -webkit-animation: 1.7s ease 0s normal none infinite magic-mouse-icon; -moz-animation: 1.7s ease 0s normal none infinite magic-mouse-icon; -o-animation: 1.7s ease 0s normal none infinite magic-mouse-icon; animation: 1.7s ease 0s normal none infinite magic-mouse-icon; border-radius: 30%; background: #000; height: 12px; left: 0; margin-left: auto; margin-right: auto;
+margin-top: 6px; right: 0; width: 5px; }
+a.inner-link { color: #000; text-decoration: none; }
+.cb-slideshow li span{ filter: brightness(40%); -webkit-filter: brightness(40%); -moz-filter: brightness(40%); -o-filter: brightness(40%); -ms-filter: brightness(40%); }
+@media only screen and (max-width:767px) { .mouse-icon { bottom:10px; } .cb-slideshow li div h3 { font-size:30px; } }
+
+.mouse-icon { background: none; border: 2px solid; border-radius: 15px; bottom: 0px; height: 44px; left: 0; margin: 0 auto; position: absolute; right: 0; width: 30px; cursor: pointer; -webkit-transition: all .3s linear; -moz-transition: all .3s linear; -ms-transition: all .3s linear; -o-transition: all .3s linear; transition: all .3s linear; }
+.mouse-icon:hover{ opacity: 0.8 !important; -webkit-transition: all .3s linear; -moz-transition: all .3s linear; -ms-transition: all .3s linear; -o-transition: all .3s linear; transition: all .3s linear; }
+.mouse-icon .wheel { -webkit-animation: 1.7s ease 0s normal none infinite magic-mouse-icon; -moz-animation: 1.7s ease 0s normal none infinite magic-mouse-icon; -o-animation: 1.7s ease 0s normal none infinite magic-mouse-icon; animation: 1.7s ease 0s normal none infinite magic-mouse-icon; border-radius: 30%; background:#333; height: 12px; left: 0; margin-left: auto; margin-right: auto; margin-top: 6px; right: 0; width: 6px; }
+@-moz-keyframes magic-mouse-icon { 0% { margin-top: 6px; opacity: 0;} 30% { opacity: 1;} 100% { margin-top: 18px; opacity: 0;} }
+@-webkit-keyframes magic-mouse-icon { 0% { margin-top: 6px; opacity: 0;} 30% { opacity: 1;} 100% { margin-top: 18px; opacity: 0;} }
+@-o-keyframes magic-mouse-icon { 0% { margin-top: 6px; opacity: 0;} 30%  { opacity: 1;} 100% { margin-top: 18px; opacity: 0;} }
+@keyframes magic-mouse-icon { 0%   { margin-top: 6px; opacity: 0;} 30%  { opacity: 1;} 100% { margin-top: 18px; opacity: 0;} }

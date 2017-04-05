@@ -22,7 +22,7 @@ $formModel = new \frontend\models\ContactForm;
     <link rel="icon" type="image/png" href="/image/favicon.png">
     <?php $this->head() ?>
 </head>
-<body class="bg-grad">
+<body class="bg-grad <?php if(yii::$app->controller->id == 'site') echo 'no-scrolling'; ?>">
 <?php $this->beginBody() ?>
 
 <header class="container-fluid">
@@ -81,42 +81,64 @@ $formModel = new \frontend\models\ContactForm;
     <script>
 
         // Прокручивание колесиком
-        var anchors = [];
-        var currentAnchor = -1;
-        var isAnimating  = false;
-        $(function(){
-            function updateAnchors() {
-                anchors = [];
-                $('.anchor').each(function(i, element){
-                    anchors.push( $(element).offset().top );
-                });
-            }
-            $('body').on('mousewheel', function(e){
-                e.preventDefault();
-                e.stopPropagation();
-                if( isAnimating ) {
-                    return false;
-                }
-                isAnimating  = true;
-                // Increase or reset current anchor
-                if( e.originalEvent.wheelDelta >= 0 ) {
-                    currentAnchor--;
-                } else {
-                    currentAnchor++;
-                }
-                if( currentAnchor > (anchors.length - 1)
-                    || currentAnchor < 0 ) {
-                    currentAnchor = 0;
-                }
-                isAnimating  = true;
-                $('html, body').animate({
-                    scrollTop: parseInt( anchors[currentAnchor] )
-                }, 800, 'swing', function(){
-                    isAnimating  = false;
-                });
-            });
-            updateAnchors();
-        });
+		var anchors = [];
+		var currentAnchor = 0;
+		var isAnimating  = false;
+		$(function(){
+			function updateAnchors() {
+				anchors = [];
+				$('.anchor').each(function(i, element){
+					anchors.push( $(element).offset().top );
+				});
+			}
+			$('body').on('mousewheel', function(e){
+				e.preventDefault();
+				e.stopPropagation();
+				if( isAnimating ) {
+					return false;
+				}
+				isAnimating  = true;
+				// Increase or reset current anchor
+				if( e.originalEvent.wheelDelta >= 0 ) {
+					currentAnchor--;
+				} else {
+					currentAnchor++;
+				}
+				if( currentAnchor > (anchors.length - 1) 
+				   || currentAnchor < 0 ) {
+					currentAnchor = 0;
+				}
+				isAnimating  = true;
+				$('html, body').animate({
+					scrollTop: parseInt( anchors[currentAnchor] )
+				}, 800, 'swing', function(){
+					isAnimating  = false;
+				});
+			});
+			
+			$(window).keyup(function(event) {
+				if (event.keyCode == 38) {
+					event.preventDefault();
+					currentAnchor--;
+				}
+				if (event.keyCode == 40) {
+					event.preventDefault();
+					currentAnchor++;   
+				}
+				if( currentAnchor > (anchors.length - 1) 
+				   || currentAnchor < 0 ) {
+					currentAnchor = 0;
+				}
+				isAnimating  = true;
+				$('html, body').animate({
+					scrollTop: parseInt( anchors[currentAnchor] )
+				}, 800, 'swing', function(){
+					isAnimating  = false;
+				});         
+			});
+			
+			updateAnchors();   
+		});
 
         // Смена активного пункта
 

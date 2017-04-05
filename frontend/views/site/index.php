@@ -4,9 +4,30 @@ $this->title = $page->seo->title;
 if(empty($this->title)) {
     $this->title = $page->name;
 }
-?>
-<div id="fullpage">
 
+$this->registerJs("
+	function renderLogo() {
+		if($(window).scrollTop() > jQuery('#command').height()-100) {
+			$('.right-logo').show('slow');
+			console.log(1);
+		}
+		else {
+			$('.right-logo').hide();
+			console.log(2);
+		}
+	}
+
+	$(document).on('scroll', renderLogo);
+    
+    if($(window).width() < 640) {
+        $('body').removeClass('no-scrolling');
+    }
+"); 
+?>
+<style>
+.right-logo { display: none; }
+</style>
+<div id="fullpage">
     <?php $i = 0; foreach($slides as $key => $slide) { $i++; ?>
         <?php
         if($slide->hasImage()) {
@@ -19,8 +40,13 @@ if(empty($this->title)) {
         ?>
         <section class="home-slide container-fluid anchor" id="<?=$slide->background;?>">
             <div class="container">
+				<?php if($i == 2) { ?>
+					<div class="col-sm-2 right-logo">
+						<a href="/"><img src="/image/svg/logo.svg" alt=""></a>
+					</div>
+				<?php } ?>
                 <?php if(isset($slides[$key+1]) && $nextSLide = $slides[$key+1]) { ?>
-                    <a class="animate" href="#slide<?=$nextSLide->id;?>"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <a class="animate" href="#<?=$nextSLide->background;?>"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                 <?php } ?>
                 <div class="row">
                     <div class="hidden-xs col-sm-2">
@@ -42,6 +68,15 @@ if(empty($this->title)) {
                     </div>
                 </div>
             </div>
+			<?php if($nextSLide && $i == 1) { ?>
+				<div class="intro-scroller">
+					<a class="inner-link animate" href="#<?=$nextSLide->background;?>">
+						<div class="mouse-icon">
+							<div class="wheel"></div>
+						</div>
+					</a> 
+				</div>
+			<?php } ?>
         </section>
     <?php } ?>
 
